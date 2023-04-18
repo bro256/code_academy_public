@@ -1,0 +1,3 @@
+skysti_produktai = {'pienas': 0.5, 'kefyras': 0.5, 'gira': 1.0, 'obuoliu sultys': 1.0, "degtine": 0.7} ## kiekis litrais
+kieti_produktai = {'bociu duona': 0.3, 'kruasanas': 0.1, 'meduoliai': 0.3, 'krekeriai': 0.1, 'saldyti varskeciai':0.3} ## kiekis kilogramais
+paruosti_patiekalai = {'krosanai': 0.2, 'amerikietiški blyneliai': 0.3,'lietiniai blynai': 0.3, 'spurgos': 0.1, "plovas": 0.5} ## kiekis kilogramais
