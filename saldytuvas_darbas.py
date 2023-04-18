@@ -1,22 +1,45 @@
-skysti_produktai = ['pienas', 'surelis','varske', 'jogurtas', 'suris']
-kieti_produktai = ['kvieciu miltai', 'rugiu miltai', 'kukuruzu miltai', 'ryziu miltai', 'makaronai penne', 'bociu duona', 'kruasanas', 'meduoliai', 'krekeriai', 'saldyti varskeciai']
-paruosti_patiekalai = [
-    'krosanai', 'amerikietiški blyneliai',
-    'lietiniai blynai', 'spurgos',
-]
+skysti_produktai = ['pienas', 'jogurtas', 'kefyras', 'gira', 'degtine', 'obuoliu sultys']
+kieti_produktai = ['kvieciu miltai', 'rugiu miltai', 'kukuruzu miltai', 'ryziu miltai', 'makaronai penne']
+paruosti_patiekalai = ['krosanai', 'amerikietiški blyneliai','lietiniai blynai', 'spurgos']
+
+saldytuvo_produktai = skysti_produktai + kieti_produktai + paruosti_patiekalai
 
 import os
 os.system('cls')
+
+saldytuvas = {}
 
 while True:
 #    os.system('cls')
 
     print('------- Meniu -------')
-    print('1: Pirmas')
-    print('2: Antras')
-    print('3: Trecias')
-    print('4: Ketvirtas')
+    print('1: Įdėti produktus')
+    print('2: Išimti produktus')
+    print('3: Peržiūrėti sarašą')
+    print('4: Bendras svoris')
     print('0: išeiti')
+
+    
+
+    def prideti_produktus():
+        print(f"{'Numeracija':<10} {'Produktai'}")  # string formating to add column names for 'task index' & 'task name'
+        for i, task in enumerate(saldytuvo_produktai):
+            print("{:<10} {}".format(i, task))  # formated & descriptive in terminal / harder to read as code
+            produkto_pasirinkimas = input('Įveskite norima produktą: ')
+            produktu_kiekis = float(input('Įveskite produkto kiekį (kg/L): '))
+        return[produkto_pasirinkimas, produktu_kiekis]
+    
+    def isimti_produktus():
+        return
+    
+    def perziureti_sarasa():
+        return
+    
+    def bendras_svoris():
+        return
+    
+
+        
 
     pasirinkimas = input('Pasirinkite: ')
 
@@ -26,12 +49,21 @@ while True:
         break
 
     elif pasirinkimas == "1":
+
  #       os.system('cls')
-        print ('pirmas')
+        prideti_produktus()
 
     elif pasirinkimas == "2":
  #       os.system('cls')
-        print ('antras')
+        isimti_produktus()
+
+    elif pasirinkimas == "3":
+ #       os.system('cls')
+        perziureti_sarasa()
+
+    elif pasirinkimas == "4":
+ #       os.system('cls')
+        bendras_svoris()
 
     else:
  #       os.system('cls')
