@@ -70,77 +70,137 @@
 #         print ('netinka')
 
 
+# import os
+
+# os.system('cls')
+
+# kieti = {}
+# skysti = {}
+# paruosti = {}
+
+
+
+# while True:
+# #    os.system('cls')
+
+#     print("------- Meniu -------")
+#     print("1: Prideti produktus")
+#     print("2: Isimti produktus")
+#     print("3: Perziureti produktu sarasa")
+#     print("4: Perziureti bendra produktu svori")
+#     print("0: išeiti")
+
+#     pasirinkimas = input("Pasirinkite: ")
+
+
+
+#     if pasirinkimas == "1":
+
+#         while True:
+#             print (f'kieti produktai: {kieti}')
+#             print (f'skysti produktai: {skysti}')
+#             print (f'paruosti produktai: {paruosti}')
+#             print("------- Meniu -------")
+#             print("1: Prideti produktus")
+#             print("0: Iseiti")
+#             pasirinkimas1 = int(input("Pasirinkite:"))
+#             if pasirinkimas1 == 1:
+# #            os.system('cls')
+#                 print (f'kieti produktai: {kieti}')
+#                 print (f'skysti produktai: {skysti}')
+#                 print (f'paruosti produktai: {paruosti}')
+#                 print('Iveskite produkta:')
+#                 produktas = input(">: ")
+#                 print('Iveskite kieki:')
+#                 kiekis = input(">: ")
+#                 print('Iveskite tipa: kietas(k)/skystas(s)/paruoštas(p):')
+#                 tipas = input(">: ")
+#                 if tipas == "k":
+#                     kieti[produktas] = kiekis
+#                 if tipas == "s":
+#                     skysti[produktas] = kiekis
+#                 if tipas == "p":
+#                     paruosti[produktas] = kiekis
+#             elif pasirinkimas1 == 0:
+#                 print("viso gero")
+#                 break
+#             else:
+#                 break
+
+
+
+#     elif pasirinkimas == "2":
+#         pass
+#     elif pasirinkimas == "3":
+#          pass   
+#     elif pasirinkimas == "4":
+#          pass   
+
+#     elif pasirinkimas == "0":
+# #        os.system('cls')
+#         print('------- Viso gero -------')
+#         break
+
+#     else:
+#         print('Iveskite skaiciu is meniu')
+
+
+
 import os
 
 os.system('cls')
 
-kieti = {}
-skysti = {}
-paruosti = {}
+produktai = {}
 
 while True:
-#    os.system('cls')
+    os.system('cls')
 
-    print("------- Meniu -------")
-    print("1: Prideti produktus")
-    print("2: Isimti produktus")
-    print("3: Perziureti produktu sarasa")
-    print("4: Perziureti bendra produktu svori")
-    print("0: išeiti")
+    print("-Programa šaldytuvas-")
+    print("------- Meniu -------\n")
+    print("1: Pridėti produktus į šaldytuvą")
+    print("2: Išimti produktus iš šaldytuvo")
+    print("3: Peržiūrėti šaldytuvo produktų sąrašą")
+    print("4: Peržiūrėti bendrą produktų svorį šaldytuve")
+    print("0: Uždaryti šaldytuvą")
 
-    pasirinkimas = input("Pasirinkite: ")
-
-
+    pasirinkimas = input("\nPasirinkite: ")
 
     if pasirinkimas == "1":
-
-        while True:
-            print (f'kieti produktai: {kieti}')
-            print (f'skysti produktai: {skysti}')
-            print (f'paruosti produktai: {paruosti}')
-            print("------- Meniu -------")
-            print("1: Prideti produktus")
-            print("0: Iseiti")
-            pasirinkimas1 = int(input("Pasirinkite:"))
-            if pasirinkimas1 == 1:
-#            os.system('cls')
-                print (f'kieti produktai: {kieti}')
-                print (f'skysti produktai: {skysti}')
-                print (f'paruosti produktai: {paruosti}')
-                print('Iveskite produkta:')
-                produktas = input(">: ")
-                print('Iveskite kieki:')
-                kiekis = input(">: ")
-                print('Iveskite tipa: kietas(k)/skystas(s)/paruoštas(p):')
-                tipas = input(">: ")
-                if tipas == "k":
-                    kieti[produktas] = kiekis
-                if tipas == "s":
-                    skysti[produktas] = kiekis
-                if tipas == "p":
-                    paruosti[produktas] = kiekis
-            elif pasirinkimas1 == 0:
-                print("viso gero")
-                break
-            else:
-                break
-
-
+        os.system('cls')
+        print (f'Produktų sąrašas: {produktai}')
+        print('Įveskite produktą:')            
+        produktas = input(">: ")
+        print('Įveskite kiekį:')
+        kiekis = input(">: ")
+        produktai[produktas] = kiekis
 
     elif pasirinkimas == "2":
-        pass
+        os.system('cls')
+        print(f'Produktų sąrašas: {produktai}')
+        print('Įveskite produktą:')
+        produktas = input(": ")
+        del produktai[produktas]
+
     elif pasirinkimas == "3":
-         pass   
+        os.system('cls')
+        print (f'Produktų sąrašas: {produktai}')
+        input("Spauskite ENTER, kad grįžti į ankstesnį meniu")
+    
     elif pasirinkimas == "4":
-         pass   
+        os.system('cls')
+        is_viso = 0
+        produktai_list = list(produktai.values())
+        for produktas in produktai_list:
+            is_viso = is_viso + float(produktas)
+        print(f'Bendras produktų svoris šaldytuve: {is_viso:.01f} kg')
+        input("Spauskite ENTER, kad grįžti į ankstesnį meniu")
 
     elif pasirinkimas == "0":
-#        os.system('cls')
-        print('------- Viso gero -------')
+        os.system('cls')
+        print('------- Gražios dienos! -------')
         break
 
     else:
-        print('Iveskite skaiciu is meniu')
-
+        print('Įveskite skaičių iš meniu')
 
 
