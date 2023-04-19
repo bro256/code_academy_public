@@ -148,7 +148,8 @@
 
 import os
 os.system('cls')
-produktai = {} # P
+produktai = {}
+receptas = {}
 
 while True:
     os.system('cls')
@@ -160,6 +161,7 @@ while True:
     print("2: Išimti produktus iš šaldytuvo")
     print("3: Peržiūrėti šaldytuvo produktų sąrašą")
     print("4: Peržiūrėti bendrą produktų svorį šaldytuve")
+    print("5: Ar išeina")
     print("0: Uždaryti šaldytuvą")
 
     pasirinkimas = input("\nPasirinkite: ") #
@@ -198,6 +200,29 @@ while True:
         print(f'Bendras produktų svoris šaldytuve: {is_viso:.01f} kg')
         input("Spauskite ENTER, kad grįžti į ankstesnį meniu")
 
+    # Meniu pasirinkimas - 5
+    if pasirinkimas == "5":
+        while True:
+            os.system('cls')
+            print (f'Receptas: {receptas}')
+            print('Įveskite vienos porcijos receptą (pvz.: pienas:1). Baigę įvesti produktus, paspauskite ENTER')
+            pasirinkimas51 = input(">: ")
+            if pasirinkimas51 != "":
+                receptas[pasirinkimas51.split(":")[0]] = (pasirinkimas51.split(":")[1])
+            else:
+                break
+        os.system('cls')
+        print (f'Receptas: {receptas}')
+        print('Įveskite porcijų kiekį:')
+        porciju_kiekis = int(input(">: "))
+        print (f'Receptas (1 porcija): {receptas}')
+        for x in receptas:
+            a = receptas.get(x)
+            (receptas[x]) = float(receptas.get(x)) * porciju_kiekis
+        print (f'Receptas ({porciju_kiekis} porcijos): {receptas}')   
+        input("Spauskite ENTER, kad grįžti į ankstesnį meniu")
+
+    
     # Meniu pasirinkimas - 0 
     elif pasirinkimas == "0":
         os.system('cls')
