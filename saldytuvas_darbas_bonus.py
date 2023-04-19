@@ -183,7 +183,19 @@ while True:
         print(f'Produktų sąrašas: {produktai}')
         print('Įveskite produktą:')
         produktas = input(": ")
-        del produktai[produktas]
+        print('Įveskite kiekį:')
+        kiekis = int(input(": "))
+        if produktas in produktai:
+            if int(produktai[produktas]) >= int(kiekis):
+                produktai[produktas] = str(int(produktai[produktas]) - int(kiekis))
+                print(f'{kiekis} {produktas} išimta iš šaldytuvo')
+                input("Norėdami tęsti, spauskite ENTER")
+            else:
+                print(f'Klaida: šaldytuve nėra pakankamai {produktas}.')
+                input("Norėdami tęsti, spauskite ENTER")
+        else:
+            print(f'Klaida: šaldytuve nėra {produktas}.')
+            input("Spauskite ENTER, kad grįžti į ankstesnį meniu")
 
     # Meniu pasirinkimas - 3 
     elif pasirinkimas == "3":
@@ -218,22 +230,14 @@ while True:
         porciju_kiekis = float(input(">: "))
         os.system('cls')
         print (f'Receptas (1 porcija): {receptas}')
-        # for x in receptas:
-        #     (receptas[x]) = float(receptas.get(x)) * porciju_kiekis
-        # print (f'Receptas ({porciju_kiekis} porcijos): {receptas}')   
-        # input("Spauskite ENTER, kad grįžti į ankstesnį meniu")
-
-        for ingridientas, kiekis in receptas.items():
-            if (produktai[ingridientas]) < (kiekis * porciju_kiekis):
-                shopping_list[ingridientas] = produktai[ingridientas] - kiekis * porciju_kiekis
-        print ({shopping_list})
-
-        
-
-        
-
-
-    
+        for ingredientas, kiekis in receptas.items():
+            if ingredientas not in produktai:
+                shopping_list[ingredientas] = float(kiekis) * float(porciju_kiekis)
+            elif float(produktai[ingredientas]) < (float(kiekis) * porciju_kiekis):
+                shopping_list[ingredientas] = (float(kiekis) * porciju_kiekis) - float(produktai[ingredientas])
+            print("Pirkinių sarašas:", shopping_list)
+            input("Spauskite ENTER, kad grįžti į ankstesnį meniu")
+           
     # Meniu pasirinkimas - 0 
     elif pasirinkimas == "0":
         os.system('cls')
