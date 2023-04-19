@@ -150,6 +150,7 @@ import os
 os.system('cls')
 produktai = {}
 receptas = {}
+shopping_list = {}
 
 while True:
     os.system('cls')
@@ -164,7 +165,7 @@ while True:
     print("5: Ar išeina")
     print("0: Uždaryti šaldytuvą")
 
-    pasirinkimas = input("\nPasirinkite: ") #
+    pasirinkimas = input("\nPasirinkite: ")
 
     # Meniu pasirinkimas - 1 
     if pasirinkimas == "1":
@@ -214,13 +215,23 @@ while True:
         os.system('cls')
         print (f'Receptas: {receptas}')
         print('Įveskite porcijų kiekį:')
-        porciju_kiekis = int(input(">: "))
+        porciju_kiekis = float(input(">: "))
+        os.system('cls')
         print (f'Receptas (1 porcija): {receptas}')
-        for x in receptas:
-            a = receptas.get(x)
-            (receptas[x]) = float(receptas.get(x)) * porciju_kiekis
-        print (f'Receptas ({porciju_kiekis} porcijos): {receptas}')   
-        input("Spauskite ENTER, kad grįžti į ankstesnį meniu")
+        # for x in receptas:
+        #     (receptas[x]) = float(receptas.get(x)) * porciju_kiekis
+        # print (f'Receptas ({porciju_kiekis} porcijos): {receptas}')   
+        # input("Spauskite ENTER, kad grįžti į ankstesnį meniu")
+
+        for ingridientas, kiekis in receptas.items():
+            if (produktai[ingridientas]) < (kiekis * porciju_kiekis):
+                shopping_list[ingridientas] = produktai[ingridientas] - kiekis * porciju_kiekis
+        print ({shopping_list})
+
+        
+
+        
+
 
     
     # Meniu pasirinkimas - 0 
